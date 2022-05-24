@@ -1,0 +1,21 @@
+specVersion: 0.0.4
+description: Good Morning NEAR
+repository: https://github.com/graphprotocol/example-subgraph/tree/near-receipts-example
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: near
+    name: receipts
+    network: near-testnet
+    source:
+      account: "contract.convertor.testnet"
+      startBlock: 90574450
+    mapping:
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - ConversionPool
+        - CreatePoolEvent
+      receiptHandlers:
+        - handler: handleReceipt

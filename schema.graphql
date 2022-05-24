@@ -1,0 +1,32 @@
+type ConversionPool @entity {
+	id: ID!
+	creator: String!
+	in_token: String!
+	in_token_balance: BigInt!
+	out_token: String!
+    out_token_balance: BigInt!,
+	reversible: Boolean!
+	in_token_rate: Int!
+	out_token_rate: Int!
+	deposit_near_amount: BigInt!
+}
+
+type CreatePoolEvent @entity {
+	id: ID!
+	signer: String!
+	create_time: String!
+	pool: ConversionPool!
+}
+
+
+type event @entity {
+    id: ID!
+    signer: String!
+    time: String!
+    event: String!
+    msg: String
+    token_sender: String
+    token_receiver: String
+    transfer_token_id: String
+    transfer_token_amount: String
+}
